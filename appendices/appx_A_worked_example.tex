@@ -1,0 +1,99 @@
+\appendix
+\section{\texorpdfstring{Worked Example: $2$-dimensional system $\otimes$ $2$-dimensional environment}{Worked Example: 2D system x 2D environment}}
+\label{app:worked-example}
+
+This appendix gives a fully explicit instance of an unfaithful cut and shows how the associated
+$\Sigma_2$ object is constructed.
+
+\subsection{Setup}
+
+Let $\mathcal{H}$ be the set of admissible histories of a joint system $SE$ with Hilbert space
+$\mathcal{H}_S \otimes \mathcal{H}_E$, where $\dim \mathcal{H}_S=\dim \mathcal{H}_E=2$.
+Let $\Pi$ be the reduction to the system density matrix at a chosen reduction event:
+\[
+  \Pi(h) = \rho_S(t_0) = \mathrm{Tr}_E\big[\rho_{SE}(t_0)\big].
+\]
+Let the intervention class $\mathcal{I}$ include free evolution for a fixed duration $\Delta t$,
+implemented by a joint unitary $U_{SE}$:
+\[
+  I_{\Delta t}: \rho_{SE}(t_0) \mapsto \rho_{SE}(t_0+\Delta t) = U_{SE}\rho_{SE}(t_0)U_{SE}^\dagger,
+\quad
+  \rho_S(t_0+\Delta t)=\mathrm{Tr}_E[\rho_{SE}(t_0+\Delta t)].
+\]
+Define the intervention relation $h \sim_{I_{\Delta t}} h'$ to mean that $h'$ is a possible
+post-intervention continuation of $h$ under $I_{\Delta t}$.
+
+\subsection{Two distinct histories with identical reduced state}
+
+Fix an orthonormal basis $\{|0\rangle_S,|1\rangle_S\}$ for $S$ and two distinct orthonormal
+bases $\{|0\rangle_E,|1\rangle_E\}$ and $\{|0'\rangle_E,|1'\rangle_E\}$ for $E$.
+Define two pure joint states at $t_0$:
+\begin{align}
+  |\psi_1\rangle_{SE} &= \sqrt{p}\,|0\rangle_S|0\rangle_E + \sqrt{1-p}\,|1\rangle_S|1\rangle_E,\\
+  |\psi_2\rangle_{SE} &= \sqrt{p}\,|0\rangle_S|0'\rangle_E + \sqrt{1-p}\,|1\rangle_S|1'\rangle_E,
+\end{align}
+with $p\in(0,1)$ and with $\{|0\rangle_E,|1\rangle_E\}$ not equal to $\{|0'\rangle_E,|1'\rangle_E\}$.
+
+Both reduce to the same system state:
+\[
+  \rho_S(t_0)
+  = \mathrm{Tr}_E\big[|\psi_1\rangle\langle\psi_1|\big]
+  = \mathrm{Tr}_E\big[|\psi_2\rangle\langle\psi_2|\big]
+  = p\,|0\rangle\langle 0| + (1-p)\,|1\rangle\langle 1|.
+\]
+Thus, there exist distinct histories $h_1,h_2 \in \mathcal{H}$ with $\Pi(h_1)=\Pi(h_2)$.
+
+\subsection{Explicit correlation-sensitive dynamics}
+
+Choose an entangling unitary, e.g.\ controlled-NOT with $S$ as control and $E$ as target, in the
+$\{|0\rangle_E,|1\rangle_E\}$ basis:
+\[
+  U_{SE} = |0\rangle\langle 0|_S \otimes \mathbb{I}_E + |1\rangle\langle 1|_S \otimes X_E,
+\]
+where $X_E|0\rangle_E=|1\rangle_E$ and $X_E|1\rangle_E=|0\rangle_E$.
+
+Under this unitary, $|\psi_1\rangle_{SE}$ evolves to
+\[
+  |\psi_1'\rangle_{SE} = \sqrt{p}\,|0\rangle_S|0\rangle_E + \sqrt{1-p}\,|1\rangle_S X_E|1\rangle_E
+  = \sqrt{p}\,|0\rangle_S|0\rangle_E + \sqrt{1-p}\,|1\rangle_S|0\rangle_E,
+\]
+which factorizes as $(\sqrt{p}\,|0\rangle_S+\sqrt{1-p}\,|1\rangle_S)\otimes|0\rangle_E$ and hence
+yields a pure reduced state
+\[
+  \rho_S^{(1)}(t_0+\Delta t) = |\phi\rangle\langle\phi|,\quad |\phi\rangle=\sqrt{p}\,|0\rangle+\sqrt{1-p}\,|1\rangle.
+\]
+
+By contrast, if $|\psi_2\rangle_{SE}$ is defined using a different environment basis, then the
+same $U_{SE}$ (defined relative to the unprimed basis) acts differently on the environment
+components of $|\psi_2\rangle_{SE}$. For generic choices of $\{|0'\rangle,|1'\rangle\}$, the
+resulting reduced state $\rho_S^{(2)}(t_0+\Delta t)$ differs from $|\phi\rangle\langle\phi|$.
+Therefore,
+\[
+  \Pi(h_1)=\Pi(h_2)\quad\text{but}\quad
+  \Pi(h_1') \neq \Pi(h_2')
+\]
+for $h_1 \sim_{I_{\Delta t}} h_1'$ and $h_2 \sim_{I_{\Delta t}} h_2'$.
+
+This is a predictive failure: an agent who knows only $\rho_S(t_0)$ cannot predict the outcome
+of applying the same free-evolution intervention $I_{\Delta t}$, because the result depends on
+which fiber element (which correlation structure) is realized.
+
+\subsection{Constructing the \texorpdfstring{$\Sigma_2$}{Sigma-2} object}
+
+Let $r=\rho_S(t_0)$. The fiber is $F(r)=\Pi^{-1}(r)$, containing at least $h_1,h_2$.
+For an intervention $I_{\Delta t}$, define the continuation set
+\[
+  A_{I_{\Delta t}}(r)
+  = \Big\{ \Pi(h') \,\Big|\, \exists h\in \Pi^{-1}(r)\ \text{s.t.}\ h \sim_{I_{\Delta t}} h' \Big\}.
+\]
+In this example, $A_{I_{\Delta t}}(r)$ contains at least two distinct elements
+$\rho_S^{(1)}(t_0+\Delta t)$ and $\rho_S^{(2)}(t_0+\Delta t)$, reflecting the set-valued nature of
+faithful prediction under the unfaithful cut.
+
+The associated $\Sigma_2$ description is
+\[
+  \Sigma_2(r) = \big(r,\ F(r),\ \{A_I(r)\}_{I\in\mathcal{I}}\big),
+\]
+which restores counterfactual semantics: given $I\in\mathcal{I}$, the correct prediction is not
+a single output but the admissible outcome set determined by the fiber and the intervention
+relation.

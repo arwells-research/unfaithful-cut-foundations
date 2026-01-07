@@ -1,0 +1,29 @@
+\section{Introduction}
+
+\subsection{Reduced descriptions and their limits}
+
+Quantum theory is extraordinarily successful as a predictive framework, yet persistent foundational and operational difficulties arise whenever reduced descriptions are treated as sufficient representations of physical systems. Contextuality theorems prohibit noncontextual value assignments to quantum states; preparation contextuality shows that operationally equivalent states can encode inequivalent physical situations; non-Markovian dynamics demonstrate that instantaneous reduced states often fail to predict future behavior; and the measurement problem highlights the inability of unitary state evolution to account for definite events without additional structure.
+
+These issues are typically addressed by enlarging the descriptive object. When states fail, one introduces environments, memory kernels, hidden variables, or multi-time process tensors. While often effective in practice, these strategies obscure a more basic and prior question: \emph{under what structural conditions can a reduced description support counterfactual prediction under interventions at all?}
+
+\subsection{Operational reduction and the unfaithful cut}
+
+Physical theories operate by reducing an underlying space of admissible physical histories to a smaller set of operationally accessible descriptions. Formally, this reduction is a many-to-one mapping from admissible histories to reduced objects. Such reductions are unavoidable: they define the interface between theory and experiment.
+
+We argue that discarding information is not itself the problem. The problem arises when the reduction creates a \emph{degenerate representation}: dynamically distinct histories are identified at the reduced level, thereby discarding distinctions that are causally relevant for future interventions. In this case, the reduced description is not merely incomplete in an ontological sense; it is operationally insufficient for counterfactual reasoning.
+
+We refer to this failure mode as \emph{the unfaithful cut}. Crucially, the failure is not that the reduced object evolves incorrectly, but that no evolution rule defined solely on that object can, in general, be sufficient to support counterfactual analysis—i.e., predictions of what would occur under alternative future interventions within a specified intervention class. In such cases, searching for improved master equations or more accurate dynamical maps constitutes a category error: the representational cut itself is inadequate for the task.
+
+\subsection{From state insufficiency to structural diagnosis}
+
+The unfaithful cut reframes several familiar problems. In open quantum systems, it clarifies why reduced density matrices fail when initial system--environment correlations are present. In non-Markovian dynamics, it explains why memory effects cannot always be captured by time-local or even multi-time algebraic descriptions. In quantum control, it accounts for the empirical observation that identical reduced states can respond differently to identical control pulses.
+
+Our central claim is conditional and diagnostic: under physically standard assumptions about interventions, any reduced description that treats an algebraically closed object as sufficient—whether instantaneous or multi-time (Σ$_1$ descriptions)—fails to preserve admissible continuation structure whenever the reduction discards intervention-relevant distinctions. This failure is structural rather than dynamical and does not imply that Σ$_1$ descriptions are universally invalid.
+
+We formalize the minimal representational structure required to restore counterfactual semantics as \emph{second-order constraint geometry} (Σ$_2$): a geometry over admissible reduced trajectories rather than over instantaneous reduced states. Memory effects, hysteresis, and arrow-like directedness then arise as consequences of projection and degeneracy, rather than as fundamental dynamical asymmetries.
+
+\subsection{Scope and contributions}
+
+This work makes three contributions. First, we define faithfulness with respect to interventions as a criterion for reduced descriptions and show how its failure diagnoses a broad class of foundational and operational limitations. Second, we establish a structural impossibility result identifying sufficient conditions under which algebraically closed (Σ$_1$) descriptions cannot support counterfactual prediction under a given intervention class. Third, we characterize the minimal representational information that any faithful description must encode, formalized here as Σ$_2$ geometry, thereby clarifying the structural origin of memory and directedness effects.
+
+This work does not propose new dynamics, new ontologies, or a replacement formalism for quantum theory. It provides a structural diagnostic identifying when reduced descriptions are incapable—by construction—of supporting counterfactual reasoning under interventions, and it characterizes the minimal representational structure required to restore such reasoning.

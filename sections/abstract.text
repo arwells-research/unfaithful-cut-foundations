@@ -1,0 +1,31 @@
+\begin{abstract}
+
+Modern quantum foundations increasingly recognize that instantaneous state descriptions are
+insufficient to account for contextuality, non-Markovian dynamics, and intervention-dependent
+behavior. Related advances extend the descriptive object to non-Markovian and multi-time process
+formalisms, yet typically retain the assumption that a suitably defined algebraic object can
+remain sufficient for prediction under interventions.
+
+In this work we identify and formalize a structural diagnostic underlying these phenomena, which
+we term \emph{the unfaithful cut}. We consider many-to-one operational reductions from a space of
+admissible histories to reduced descriptions such as states, channels, or static multi-time
+process tensors. We introduce a criterion of \emph{faithfulness with respect to interventions},
+requiring that identical reduced descriptions permit identical sets of admissible future
+continuations under a specified class of physical interventions.
+
+We show that, under physically standard conditions, reductions that rely on algebraically closed
+descriptive objects—whether instantaneous states or static multi-time process tensors
+($\Sigma_1$ descriptions)—can fail to be faithful: distinct underlying histories may map to the
+same reduced object yet support different counterfactual responses to later interventions. This
+failure is representational rather than dynamical and cannot, in general, be repaired by
+modifying equations of motion on the reduced space alone.
+
+We then characterize the minimal \emph{representational structure} required to restore
+counterfactual semantics, formalized here as a trajectory-level admissibility geometry
+($\Sigma_2$). In this framework, reduced descriptions are associated with structured families of
+admissible histories rather than single points, and memory effects or arrow-like directedness
+arise as geometric consequences of reduction rather than as fundamental dynamical postulates.
+Our results apply across state-based, process-theoretic, and causal-model frameworks and clarify
+the structural limits of algebraic reductions in open quantum systems and quantum control.
+
+\end{abstract}

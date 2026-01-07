@@ -1,0 +1,180 @@
+\section{\texorpdfstring{$\Sigma_2$}{Sigma-2} Geometry as the Minimal Faithfulness Structure}
+\label{sec:sigma2}
+
+Sections 2--3 formalize the unfaithful cut and establish that $\Sigma_1$ descriptions
+can fail under physically standard conditions when a reduction discards intervention-relevant
+distinctions. We now define a $\Sigma_2$ description and show, in a precise sense, that it
+\emph{explicitly represents the minimal information any faithful reduced description must encode}
+to support counterfactual prediction under a specified intervention class $\mathcal{I}$,
+without collapsing back to the trivial solution of retaining all of $\mathcal{H}$.
+
+\subsection{The \texorpdfstring{$\Sigma_2$}{Sigma-2} object: fibers with admissibility structure}
+
+Let $\Pi:\mathcal{H}\to\mathcal{R}$ be a fixed reduction and $\mathcal{I}$ an intervention class.
+For each $r\in\mathcal{R}$, define the \emph{fiber} (preimage)
+\begin{equation}
+\mathcal{F}(r) := \Pi^{-1}(r) \subseteq \mathcal{H}.
+\end{equation}
+
+Define the \emph{intervention successor relation on histories} as $\sim_I \subseteq \mathcal{H}\times \mathcal{H}$
+(Section 2). This induces, for each $r$ and each $I\in\mathcal{I}$, a \emph{fiber-to-outcome relation}:
+\begin{equation}
+\mathcal{A}_I(r) \subseteq \mathcal{F}(r)\times\mathcal{R},
+\qquad
+(h, r')\in\mathcal{A}_I(r)
+\iff
+\exists h' \in \mathcal{H}: h \sim_I h' \;\wedge\; \Pi(h')=r'.
+\end{equation}
+
+Intuitively, $\mathcal{A}_I(r)$ records which reduced outcomes $r'$ are reachable under $I$,
+\emph{indexed by which fiber element $h\in\Pi^{-1}(r)$ is realized}.
+
+\begin{definition}[Σ$_2$ description]
+A $\Sigma_2$ description of a reduced state $r\in\mathcal{R}$ (relative to $\Pi$ and $\mathcal{I}$)
+is the structured object
+\begin{equation}
+\Sigma_2(r) := \bigl(r, \mathcal{F}(r), \{\mathcal{A}_I(r)\}_{I\in\mathcal{I}}\bigr),
+\end{equation}
+consisting of the base point $r$, its fiber $\mathcal{F}(r)$, and the family of admissibility
+relations $\{\mathcal{A}_I(r)\}$ describing counterfactual continuation structure under $\mathcal{I}$.
+\end{definition}
+
+This definition is deliberately minimal in \emph{representational} scope: it adds no dynamics on
+$\mathcal{R}$ and no privileged time parameter. It supplements $r$ by the least additional
+structure required to make intervention-indexed continuation structure explicit.
+
+\subsection{Composition under interventions}
+
+A $\Sigma_2$ description must be operationally usable: given $\Sigma_2(r)$ and an intervention $I$,
+we must be able to compute the resulting $\Sigma_2$ object(s). Define the \emph{post-intervention fiber}
+at an outcome $r'\in\mathcal{R}$ by
+\begin{equation}
+\mathcal{F}_I(r \to r') := \left\{ h' \in \mathcal{H} \;\middle|\;
+\exists h \in \mathcal{F}(r)\text{ with } h \sim_I h' \text{ and } \Pi(h')=r'
+\right\}.
+\end{equation}
+
+Note that $\mathcal{F}_I(r \to r')$ is a subset of the target fiber:
+\begin{equation}
+\mathcal{F}_I(r \to r') \subseteq \mathcal{F}(r') = \Pi^{-1}(r'),
+\end{equation}
+consisting only of those fiber elements at $r'$ reachable via the intervention path from some
+history in $\mathcal{F}(r)$. In this sense, interventions refine fibers rather than selecting
+single histories.
+
+The $\Sigma_2$ update induced by $I$ is set-valued:
+\begin{equation}
+\Sigma_2(r) \xRightarrow[]{I}
+\left\{
+\Sigma_2(r') \;:\; \exists\, h\in\mathcal{F}(r)\ \exists\,h'\in\mathcal{H}\ (h\sim_I h' \wedge \Pi(h')=r')
+\right\}.
+\end{equation}
+
+For instance, if $\mathcal{F}(r)$ contains histories $\{h_1,h_2\}$ and an intervention $I$ yields
+$h_1\sim_I h_1'$ with $\Pi(h_1')=r_1'$ while $h_2\sim_I h_2'$ with $\Pi(h_2')=r_2'$ and
+$r_1'\neq r_2'$, then the update produces two distinct $\Sigma_2$ outcomes
+$\{\Sigma_2(r_1'),\Sigma_2(r_2')\}$.
+
+This rule is precisely what $\Sigma_1$ frameworks cannot supply in the unfaithful case: Σ$_1$ attempts
+to assign a single reduced evolution rule $r \mapsto r'$ independent of which $h\in\Pi^{-1}(r)$
+is realized, while $\Sigma_2$ makes this dependence explicit.
+
+\subsection{Faithfulness restored}
+
+We now show that $\Sigma_2$ restores counterfactual prediction relative to $\mathcal{I}$ by construction.
+
+\begin{proposition}[$\Sigma_2$ determines continuation structure]
+\label{prop:sigma2-determines-cont}
+For each $r\in\mathcal{R}$, the continuation set $\mathrm{Cont}(r;\mathcal{I})$ is determined by
+$\Sigma_2(r)$ via
+\begin{equation}
+\mathrm{Cont}(r;\mathcal{I})
+=
+\left\{
+(I,r') \;\middle|\; \exists h\in\mathcal{F}(r)\ \text{such that}\ (h,r')\in\mathcal{A}_I(r)
+\right\}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Immediate from the definitions of $\mathcal{F}(r)$ and $\mathcal{A}_I(r)$.
+\end{proof}
+
+\begin{corollary}[Counterfactual prediction becomes well-defined]
+\label{cor:sigma2-counterfactual}
+If a reduced theory represents preparation outcomes by $\Sigma_2$ objects, then counterfactual
+prediction under $\mathcal{I}$ is well-defined in the sense that the theory can represent,
+for each $I\in\mathcal{I}$, the full set of admissible reduced outcomes without ambiguity.
+\end{corollary}
+
+The point is not that $\Sigma_2$ collapses multiple outcomes to one; rather, it represents the
+\emph{set-valued} nature of counterfactual outcomes induced by degeneracy in $\Pi$.
+
+\subsection{Representational minimality of \texorpdfstring{$\Sigma_2$}{Sigma-2} (continuation-sufficient structure)}
+
+We formalize ``minimal'' as \emph{representational}: $\Sigma_2$ makes explicit the coarsest
+augmentation of $r$ that suffices to recover the continuation set for all interventions in
+$\mathcal{I}$. Any faithful completion must encode at least the continuation structure, hence
+at least the information content of $\Sigma_2$. This is a representational minimality claim,
+not a computational one.
+
+Let $\mathfrak{D}$ be any candidate augmented description space and $K:\mathcal{H}\to\mathfrak{D}$
+a refined reduction (a ``completion'') such that $K$ is faithful with respect to $\mathcal{I}$
+in the same sense as Definition 2.1 (with $\Pi$ replaced by $K$). Suppose further that
+$\Pi$ factors through $K$, i.e.,
+\begin{equation}
+\Pi = q \circ K
+\end{equation}
+for some surjection $q:\mathfrak{D}\to\mathcal{R}$, meaning $K$ refines $\Pi$.
+
+\begin{theorem}[Representational minimality of $\Sigma_2$ as continuation-sufficient structure]
+\label{thm:minimal-sigma2}
+Let $K:\mathcal{H}\to\mathfrak{D}$ be any completion refining $\Pi$ and faithful with respect
+to $\mathcal{I}$. Then there exists a map
+\begin{equation}
+\phi:\mathfrak{D}\to \Sigma_2(\mathcal{R})
+\end{equation}
+such that for all $h\in\mathcal{H}$,
+\begin{equation}
+\phi(K(h)) = \Sigma_2(\Pi(h)),
+\end{equation}
+and such that $\phi(d)$ determines $\mathrm{Cont}(q(d);\mathcal{I})$.
+In particular, any faithful completion must carry at least enough information to reconstruct
+the $\Sigma_2$ continuation structure.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Because $K$ is faithful, for any two histories $h_1,h_2\in K^{-1}(d)$ we have identical continuation
+structure under $\mathcal{I}$ at the $K$-level. Since $\Pi=q\circ K$, both histories map to the same
+basepoint $r=q(d)\in\mathcal{R}$, and their induced continuation structure at the $\Pi$-level must
+therefore coincide. Hence the fiber $K^{-1}(d)$ can be embedded into a well-defined subset of
+$\Pi^{-1}(r)$ on which the continuation relations induced by $\sim_I$ are consistent. Define $\phi(d)$
+to be the $\Sigma_2$ object at $r$ whose fiber is this embedded subset and whose admissibility relations
+are induced by $\sim_I$ restricted to it. This construction is well-defined precisely because
+faithfulness of $K$ ensures invariance of continuation structure over $K^{-1}(d)$.
+\end{proof}
+
+Theorem~\ref{thm:minimal-sigma2} establishes that $\Sigma_2$ encodes the \emph{representationally minimal} information
+required for faithfulness. This does not imply computational minimality: in worst cases,
+$\Sigma_2$ may be as complex as the full history space $\mathcal{H}$. Rather, the theorem makes
+explicit the structural content that any faithful completion must possess in order to support
+counterfactual prediction under the intervention class $\mathcal{I}$.
+
+\subsection{Memory and directedness as geometric consequences}
+
+Within $\Sigma_2$, ``memory'' is not a hidden variable but a property of the fibered continuation
+structure. When $\Pi$ is degenerate, a single reduced state $r$ corresponds to multiple histories
+in $\mathcal{F}(r)$ reflecting different past interactions or correlations. If these fiber elements
+support different admissible outcomes under the same intervention $I$, then reduced evolution is
+necessarily history-dependent: the effective response depends on which fiber element is realized.
+This dependence is what is operationally labeled ``memory'' in open systems.
+
+``Directedness'' arises when forward interventions progressively constrain the feasible fiber.
+Even if the underlying admissible-history structure on $\mathcal{H}$ is time-reversal symmetric,
+the projection $\Pi$ can induce asymmetric continuation structure in $\mathcal{R}$: certain
+intervention sequences reduce feasible subsets of $\mathcal{F}(r)$ in ways that cannot be undone
+by any other interventions in $\mathcal{I}$. This geometric asymmetry appears as arrow-like
+behavior at the reduced level without being postulated as a fundamental dynamical asymmetry.
+
+Subsequent sections connect this structure to process-theoretic and causal-model formalisms and
+discuss practical approximation schemes for working with $\Sigma_2$ objects.

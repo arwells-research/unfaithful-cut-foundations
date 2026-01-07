@@ -1,0 +1,143 @@
+\section{Applications and Connections}
+\label{sec:applications}
+
+This work does not propose new dynamics, a new interpretation, or a replacement formalism for
+quantum theory. It provides a structural diagnostic: it identifies when an operational reduction
+that discards causally relevant information cannot support counterfactual prediction under a
+given intervention class, and it characterizes the minimal \emph{representational structure}
+required to restore such predictive capacity. We now connect the $\Sigma_1/\Sigma_2$
+classification to several concrete and active problem areas.
+
+\subsection{Non-Markovian open quantum systems}
+\label{sec:oqs}
+
+Open quantum systems (OQS) theory typically seeks an effective evolution equation for a reduced
+state $\rho_S(t)$, e.g.\ Lindblad or memory-kernel master equations, under assumptions such as
+initial factorization or weak coupling. In our classification, these are $\Sigma_1$ descriptions:
+prediction proceeds by applying an algebraically closed update rule on a reduced object.
+
+The structural result of Section~3 identifies a standard mechanism by which $\Sigma_1$
+descriptions can fail: whenever the reduction $\Pi$ identifies distinct correlated histories
+as the same reduced state and the intervention class includes free evolution (or more generally,
+a sufficiently rich set of admissible post-reduction operations), there need not exist a
+single-valued rule on $\rho_S$ that supports counterfactual prediction across all admissible
+histories.
+
+This reframes persistent difficulties in strongly coupled or initially correlated regimes as a
+\emph{structural} limitation of the reduction: the many-to-one nature of $\Pi$ induces a
+degeneracy in continuation structure that cannot be repaired by improving the functional form
+of a master equation on $\mathcal{R}$ alone. Classic discussions of how initial correlations
+obstruct completely positive reduced dynamics can be viewed as early instances of this
+unfaithfulness diagnosis \cite{Pechukas1994,Alicki1995}.
+
+\subsection{Quantum control under memory and uncertain preparation}
+\label{sec:control}
+
+Quantum control practice often assumes that a reduced state (or an estimated effective process
+model) suffices to predict responses to subsequent control pulses. In correlated or drifting
+environments, however, identical $\Sigma_1$ reduced descriptions can respond differently to the
+same control intervention. In our language, preparation ambiguity corresponds to fiber
+degeneracy $\mathcal{F}(r)=\Pi^{-1}(r)$, and control success depends on which fiber element is
+realized.
+
+From the $\Sigma_2$ perspective, this suggests two complementary strategies:
+\begin{enumerate}
+  \item \textbf{Fiber localization:} augment experiments to infer which subset of $\mathcal{F}(r)$
+        is realized (e.g.\ by probing correlation-sensitive observables).
+  \item \textbf{Fiber-robust control:} design interventions $I$ such that the induced continuation
+        set is effectively insensitive across the relevant equivalence classes of $\mathcal{F}(r)$,
+        i.e.\ $\mathcal{A}_I(r)$ is approximately constant over the uncertainty region.
+\end{enumerate}
+This reframes the control design problem from \emph{reach a target state from $r$} to
+\emph{achieve the desired outcome uniformly across a fiber or coarse-grained fiber class}.
+
+\subsection{Preparation contextuality as an unfaithful cut}
+\label{sec:contextuality}
+
+Preparation contextuality formalizes the phenomenon that distinct preparation procedures can be
+operationally equivalent at the level of a state description, yet yield different statistics
+under subsequent measurement choices \cite{Spekkens2005}. Let $\Pi$ map preparation histories
+to density matrices. Then preparation contextuality asserts the existence of $h_1,h_2$ with
+$\Pi(h_1)=\Pi(h_2)=\rho$ but
+$\mathrm{Cont}(\Pi(h_1);\mathcal{I})\neq\mathrm{Cont}(\Pi(h_2);\mathcal{I})$
+for an intervention class $\mathcal{I}$ that includes measurement operations. This is precisely
+the definition of an unfaithful cut.
+
+From the $\Sigma_2$ perspective, the appropriate descriptive object for preparations is not
+$\rho$ alone, but the lifted structure
+$\Sigma_2(\rho)=(\rho,\mathcal{F}(\rho),\{\mathcal{A}_I(\rho)\}_{I\in\mathcal{I}})$,
+which retains the intervention-indexed continuation geometry required for counterfactual
+prediction. This does not re-derive contextuality theorems; it provides a unifying structural
+interpretation in which contextuality appears as a special case of reduction-induced
+unfaithfulness.
+
+\subsection{Process tensors, quantum combs, and the ``static algebra'' limitation}
+\label{sec:process-tensors}
+
+Process tensors (and closely related quantum combs) provide an operational framework for
+multi-time quantum processes by representing the dependence of outcomes on inserted operations
+across multiple times \cite{Pollock2018PRA,Pollock2018PRL,Chiribella2009PRA,Chiribella2008PRL}.
+These objects refine $\Sigma_1$ by encoding temporal correlations, while remaining algebraically
+closed: prediction proceeds by contraction rules internal to a fixed tensorial object.
+
+The present analysis emphasizes that static algebraic closure does not, by itself, guarantee
+faithfulness. If the reduction identifying a ``process object'' is degenerate with respect to
+causally relevant correlations not encoded in that object, then counterfactual interventions
+can distinguish histories that the $\Sigma_1$ object treats as identical. In such cases, the
+process object remains a many-to-one image of $\mathcal{H}$.
+
+Related observations appear in work showing that extension theorems for stochastic or quantum
+process descriptions can fail in the presence of active interventions \cite{Milz2020Quantum}.
+The $\Sigma_2$ framework isolates the minimal geometric structure required to diagnose this
+failure: rather than seeking a single ``complete'' tensor, one must track continuation
+structure across fiber elements or coarse-grained fiber classes.
+
+Reference~\cite{Milz2020Quantum} shows that quantum stochastic processes need not admit
+Kolmogorov extensions when interventions are present: multi-time correlations may fail to be
+consistently embeddable in a single static tensor structure. This can be understood as an
+instance of unfaithful reduction: a process tensor constructed from limited observational data
+may fail to support counterfactual predictions under interventions not included in its
+construction. The $\Sigma_2$ framework diagnoses this failure as arising from fiber degeneracy in
+the map from full histories to the process tensor and characterizes the minimal fiber-aware
+augmentation required to restore predictive capacity.
+
+\subsection{Quantum causal models and process-matrix frameworks}
+\label{sec:causal}
+
+Quantum causal models and the process-matrix framework study which correlations and operational
+statistics admit causal explanation, including scenarios with indefinite causal order
+\cite{Oreshkov2012,CostaShrapnel2016,WoodSpekkens2015}. These approaches typically operate at the
+level of correlations among nodes and constraints on admissible process objects.
+
+The present framework addresses a prior representational question: whether the reduced
+descriptions assigned to nodes support intervention semantics at all. If nodal reductions are
+unfaithful with respect to the intervention class relevant to a causal analysis, then no causal
+structure built atop those reduced objects can yield valid counterfactual predictions without
+incorporating fiber-level admissibility structure. In this sense, $\Sigma_2$ provides a
+diagnostic precondition for causal modeling in reduced operational spaces.
+
+\subsection{Measurement and branch structure (scope-limited)}
+\label{sec:measurement}
+
+The measurement problem is often framed as a tension between unitary evolution and definite
+outcomes. We make a narrower claim: many measurement puzzles can be read as instances where a
+reduction $\Pi$ identifies distinct histories (e.g.\ distinct macroscopic records) under a
+single reduced description, thereby destroying the continuation structure required for
+counterfactual prediction about measurement outcomes.
+
+The $\Sigma_2$ framework does not select which history in a fiber is realized. It instead
+clarifies what any successful account must retain: a branch- or fiber-indexed continuation
+geometry sufficient to support counterfactual intervention questions of the form
+``what would occur if we measured differently?'' This establishes a structural constraint on
+reduction-based resolutions without committing to a particular ontology.
+
+\subsection{Relation to classic no-go results}
+\label{sec:nogos}
+
+Classic results such as Kochen--Specker contextuality \cite{KochenSpecker1967} and Fine's
+equivalence results for Bell-type models \cite{Fine1982} constrain classes of hidden-variable
+assignments compatible with quantum statistics. The present work is orthogonal in emphasis:
+rather than ruling out ontological models, it constrains the \emph{form of reduced descriptive
+objects} under which counterfactual prediction is even well-defined. Where those no-go results
+apply, they can often be reinterpreted as special instances of unfaithful cuts relative to
+particular intervention classes.

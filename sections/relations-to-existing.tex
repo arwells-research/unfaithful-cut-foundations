@@ -1,0 +1,86 @@
+\section{Relation to Process Tensors, Causal Models, Contextuality, and Measurement}
+\label{sec:relations}
+
+This work does not propose new dynamics or a replacement formalism for quantum theory. It instead
+provides a structural diagnostic: it identifies when many-to-one operational reductions are
+incapable—by construction—of supporting counterfactual reasoning under a specified intervention
+class, and it characterizes the minimal representational structure required to restore such
+reasoning.
+
+\subsection{Process tensors and quantum combs}
+
+Multi-time process tensors and quantum combs provide operational descriptions of non-Markovian
+processes by encoding multi-time correlations into algebraic objects. In the present classification,
+these are refined $\Sigma_1$ descriptions: they extend beyond instantaneous states but remain
+\emph{algebraically closed}, in the sense that prediction proceeds by contraction or composition
+rules internal to a fixed tensorial object.
+
+The structural result of Section~3 applies equally to such descriptions. If the operational cut
+identifying a process object is degenerate with respect to correlations that can later be probed
+by interventions, then static algebraic closure does not guarantee faithfulness. In such cases,
+distinct admissible histories may correspond to the same process tensor while supporting different
+counterfactual continuations.
+
+\paragraph{Schematic failure mode.}
+Consider two admissible histories $h_1,h_2\in\mathcal{H}$ that induce the same static process tensor
+$\mathcal{T}$ over a fixed set of times, so that all observable statistics for insertions at those
+times coincide. Suppose, however, that $h_1$ and $h_2$ differ in correlations with degrees of freedom
+discarded by the reduction defining $\mathcal{T}$. If the intervention class $\mathcal{I}$ includes
+a later operation (e.g., free evolution or a control pulse) whose effect depends on those discarded
+correlations, then the same $\mathcal{T}$ supports distinct admissible future outcomes depending on
+which history was realized.
+
+In this situation, the process tensor correctly predicts outcomes for the interventions it was
+constructed to represent, but it cannot support counterfactual prediction for the enlarged
+intervention class. The failure is not dynamical but representational: the tensor is a many-to-one
+image of $\mathcal{H}$ that discards continuation-relevant distinctions.
+
+From the $\Sigma_2$ perspective, the appropriate completion is not a single enlarged tensor, but a
+family of algebraic descriptions indexed by fiber elements or continuation-equivalence classes in
+$\mathcal{F}(r)$. Equivalently, one may view this as a sheaf-like structure in which $\Sigma_1$
+descriptions are valid only on patches of the fiber determined by the intervention context.
+
+This perspective is compatible with existing results emphasizing that extension theorems for
+stochastic or quantum processes can fail in the presence of active interventions. Here, that
+failure is diagnosed as an instance of an unfaithful operational cut rather than as a limitation
+of a particular tensor formalism.
+
+\subsection{Quantum causal models and interventions}
+
+Quantum causal models and process-matrix frameworks focus on admissibility constraints at the level
+of operations and correlations, often seeking conditions under which observed statistics admit a
+causal explanation. The present framework addresses a prior question: whether the reduced
+descriptions assigned to nodes support intervention semantics at all.
+
+If nodal reductions are $\Sigma_1$ and unfaithful with respect to the intervention class relevant to
+a causal analysis, then no causal structure built atop those reduced objects can consistently
+support counterfactual reasoning without incorporating fiber-level admissibility structure. In
+this sense, $\Sigma_2$ supplies a diagnostic precondition for causal modeling in reduced operational
+spaces, rather than a competing causal formalism.
+
+\subsection{Contextuality as unfaithful reduction}
+
+Preparation contextuality provides a canonical instance of an unfaithful cut: distinct preparation
+procedures yield operationally equivalent reduced descriptions (the same $\rho$) yet differ in
+their statistics under subsequent measurement interventions. In the present language, $\Pi$ is the
+map from preparation histories to reduced states, and unfaithfulness is precisely the failure of
+continuation invariance over the fiber $\Pi^{-1}(\rho)$.
+
+From the $\Sigma_2$ perspective, the appropriate descriptive object for preparations is not $\rho$
+alone, but the lifted structure $\Sigma_2(\rho)$, which retains the intervention-indexed
+continuation geometry required to support counterfactual prediction. This reframes contextuality
+as a geometric feature of the reduction rather than as a purely interpretive puzzle about what the
+quantum state ``really is.''
+
+\subsection{Measurement and event structure}
+
+Measurement problems can likewise be viewed through the lens of unfaithful cuts. Operational
+reductions that identify macroscopically distinct branch histories under a single reduced
+description destroy the continuation distinctions relevant to counterfactual questions of the
+form: ``what would occur if we measured observable $M$ rather than $N$?''
+
+In this perspective, the issue is not primarily to find a modified reduced dynamics, but to
+recognize that an unfaithful reduction cannot support event-level counterfactuals without
+additional structure encoding branch- or history-level admissibility. $\Sigma_2$ provides a
+minimal language for representing such structure without committing to a particular interpretive
+ontology or modification of quantum dynamics.

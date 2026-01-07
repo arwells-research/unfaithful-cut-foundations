@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: article
+title: "The Unfaithful Cut: A Structural Diagnostic for Algebraically Closed Reductions"
+
+authors:
+  - family-names: "Wells"
+    given-names: "A. R."
+    email: "arwells.research@proton.me"
+    affiliation: "Dual-Frame Research Group"
+
+abstract: >
+  Foundations paper introducing the unfaithful cut as a structural diagnostic for reduced
+  descriptions. The work studies many-to-one operational reductions from admissible histories
+  to reduced objects such as states, channels, or static multi-time process tensors, and
+  formalizes faithfulness with respect to interventions: identical reduced descriptions must
+  permit identical sets of admissible future continuations under a specified intervention class.
+  Under physically standard conditions, algebraically closed reduced descriptions (Σ₁) can fail
+  this criterion when intervention-relevant distinctions are discarded, yielding counterfactual
+  ambiguity that cannot, in general, be repaired by modifying reduced equations of motion alone.
+  The paper characterizes the minimal representational structure required to restore
+  counterfactual semantics as a trajectory-level admissibility geometry (Σ₂), in which reduced
+  descriptions are associated with structured families of admissible histories rather than
+  single points. The results connect to open quantum systems, quantum control, process-tensor
+  and comb frameworks, contextuality, and causal modeling, while remaining interpretation-neutral
+  and not proposing new dynamics.
+
+keywords:
+  - quantum foundations
+  - reduced descriptions
+  - counterfactual reasoning
+  - interventions
+  - open quantum systems
+  - non-Markovianity
+  - process tensors
+  - quantum control
+  - contextuality
+  - causal modeling
+  - admissible histories
+  - algebraic closure
+  - structural diagnostics
+
+license: "CC-BY-4.0"
+
+# Update this URL if/when you create the GitHub repository for this paper.
+repository-code: "https://github.com/arwells-research/unfaithful-cut-foundations"
+
+# Prefer the all-versions (concept) DOI here for long-term stability.
+doi: "10.5281/zenodo.18168369"
+
+date-released: 2026-01-06
+
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Wells"
+      given-names: "A. R."
+  title: "The Unfaithful Cut: A Structural Diagnostic for Algebraically Closed Reductions"
+  year: 2026
+  publisher: "Zenodo"
+  doi: "10.5281/zenodo.18168370"
+  version: "v1"

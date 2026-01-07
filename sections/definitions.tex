@@ -1,0 +1,121 @@
+\section{Formal Framework}
+\label{sec:definitions}
+
+\subsection{Admissible histories}
+
+Let $\mathcal{H}$ denote the set of admissible histories of a physical system. Elements
+$h \in \mathcal{H}$ represent complete realizations of the system subject to underlying
+physical constraints. No preferred global temporal parameterization is assumed on
+$\mathcal{H}$; however, histories may support partial orderings induced by experimental
+interventions or boundary conditions.
+
+Throughout, $\Sigma_1$ (``Sigma-one'') denotes algebraically closed reduced descriptions, while
+$\Sigma_2$ (``Sigma-two'') denotes trajectory-level admissibility structures.
+
+\subsection{Operational reduction}
+
+An operational description is obtained via a reduction map
+\begin{equation}
+\Pi : \mathcal{H} \rightarrow \mathcal{R},
+\end{equation}
+where $\mathcal{R}$ is a space of reduced descriptions, such as density matrices, quantum
+channels, or static multi-time process tensors. The reduction $\Pi$ is generally many-to-one
+and represents the information retained by a given experimental or theoretical interface.
+
+A reduction is said to be \emph{degenerate} if there exist distinct histories
+$h_1 \neq h_2 \in \mathcal{H}$ such that
+\begin{equation}
+\Pi(h_1) = \Pi(h_2).
+\end{equation}
+
+\subsection{Algebraically closed reduced descriptions (\texorpdfstring{$\Sigma_1$}{Sigma-1})}
+
+A reduced description $r \in \mathcal{R}$ is said to be \emph{algebraically closed} if all
+admissible future predictions are determined by a fixed algebraic object together with
+composition rules internal to a prescribed algebraic structure. Examples include
+instantaneous quantum states with completely positive maps, quantum channels, and static
+multi-time process tensors equipped with contraction rules.
+
+We refer to any framework relying exclusively on algebraically closed reduced descriptions
+as a $\Sigma_1$ framework.
+
+\subsection{Interventions and history composition}
+
+Let $\mathcal{I}$ denote a specified class of physical interventions. Interventions are
+externally applied operations performed after the reduction, acting only on degrees of
+freedom represented in $\mathcal{R}$. Examples include bounded Hamiltonian control pulses,
+completely positive maps, and standard measurement-and-feedback operations. Interventions
+that directly access discarded degrees of freedom are excluded.
+
+We assume that admissible histories support a composition relation with interventions.
+For $h,h' \in \mathcal{H}$ and $I \in \mathcal{I}$, we write
+\begin{equation}
+h \sim_I h'
+\end{equation}
+to mean that $h'$ is a possible history resulting from applying intervention $I$ to history
+$h$. No determinism or uniqueness is assumed; $\sim_I$ is a relation, not a function. 
+
+Measurements performed on the retained system $S$ that do not selectively post-condition on
+environment outcomes are included as admissible interventions; operations requiring access to,
+or conditioning on, the state of discarded degrees of freedom are excluded.
+
+We do not require the intervention class $\mathcal{I}$ to be closed under composition or to form
+a group. However, for multi-step counterfactual reasoning, one would typically assume that if
+$I_1, I_2 \in \mathcal{I}$, then their sequential composition $I_2 \circ I_1$ is also admissible.
+All results of this work apply whether or not such closure holds.
+
+\subsection{Continuation sets}
+
+For a reduced description $r \in \mathcal{R}$, define the \emph{continuation set} under
+$\mathcal{I}$ as
+\begin{equation}
+\mathrm{Cont}(r;\mathcal{I})
+=
+\left\{
+(I, r') \;\middle|\;
+\exists\, h,h' \in \mathcal{H} \text{ such that }
+\Pi(h)=r,\; h \sim_I h',\; \Pi(h')=r'
+\right\}.
+\end{equation}
+
+The continuation set therefore records, for each admissible intervention, the set of
+possible reduced outcomes compatible with at least one underlying history consistent
+with $r$. This definition makes explicit that continuation structure is inherited from
+$\mathcal{H}$ via the reduction $\Pi$, without assuming any reduced-level dynamics.
+
+\subsection{Faithfulness with respect to interventions}
+
+\begin{definition}[Faithfulness]
+A reduction $\Pi$ is \emph{faithful with respect to} $\mathcal{I}$ if, for all histories
+$h_1,h_2 \in \mathcal{H}$,
+\begin{equation}
+\Pi(h_1) = \Pi(h_2)
+\;\Rightarrow\;
+\mathrm{Cont}(\Pi(h_1);\mathcal{I})
+=
+\mathrm{Cont}(\Pi(h_2);\mathcal{I}).
+\end{equation}
+\end{definition}
+
+Faithfulness requires that identical reduced descriptions support identical sets of
+counterfactual continuations under the specified intervention class.
+
+\subsection{Counterfactual prediction (operational sense)}
+
+We say that a reduced description $r \in \mathcal{R}$ supports \emph{counterfactual prediction}
+for an intervention class $\mathcal{I}$ if, for each $I \in \mathcal{I}$, the reduced theory
+assigns a unique (or uniquely specified) set of admissible reduced outcomes
+\begin{equation}
+\widehat{\mathrm{Out}}(r;I) \subseteq \mathcal{R}
+\end{equation}
+that is invariant over the preimage $\Pi^{-1}(r)$; equivalently, if $\mathrm{Cont}(r;\mathcal{I})$
+is well-defined independent of which history in $\Pi^{-1}(r)$ is realized. In an unfaithful cut,
+identical reduced descriptions correspond to different counterfactual responses to the same $I$,
+so no Σ$_1$ dynamics defined solely on $\mathcal{R}$ can determine the correct answer.
+
+\subsection{The unfaithful cut}
+
+A reduction $\Pi$ constitutes an \emph{unfaithful cut} if it is degenerate and fails to be
+faithful with respect to $\mathcal{I}$. In this case, the reduced description is structurally
+incapable of supporting counterfactual prediction under $\mathcal{I}$, regardless of the
+dynamical laws imposed at the reduced level.

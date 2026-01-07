@@ -1,0 +1,245 @@
+\section{Generic Unfaithfulness and a Minimal Example}
+
+\subsection{A conditional structural-unfaithfulness result}
+
+The faithfulness condition places a strong constraint on the reduction $\Pi$: whenever
+distinct histories are identified at the reduced level, their future responses to all
+admissible interventions must remain indistinguishable. This can hold only if the
+discarded distinctions are dynamically irrelevant for the specified intervention class
+$\mathcal{I}$.
+
+Rather than appealing to a measure-theoretic notion of typicality, we state a conditional
+\emph{structural diagnostic}: if a reduction discards degrees of freedom that can become
+dynamically relevant under interventions that are standard in open-system practice
+(including free evolution), then the reduction fails to be faithful. In this sense,
+faithfulness requires special structural coincidences (e.g., absence of correlations)
+that are unstable under perturbations of histories, interactions, or intervention
+richness.
+
+\begin{proposition}[Unfaithfulness from discarded correlations under free evolution]
+\label{prop:unfaithful-from-correlations}
+Assume a decomposition of the underlying system into retained and discarded degrees of
+freedom (e.g., $S$ and $E$), and suppose:
+\begin{enumerate}
+  \item (\emph{Degenerate reduction}) There exist histories $h_1 \neq h_2$ such that
+        $\Pi(h_1)=\Pi(h_2)=r$, but $h_1$ and $h_2$ differ in correlations between retained
+        and discarded degrees of freedom.
+  \item (\emph{Intervention richness}) The intervention class $\mathcal{I}$ contains at least
+        one ``passive'' intervention $I_{\Delta t}$ corresponding to free evolution of the
+        full retained+discarded system over a duration $\Delta t$ (no access to discarded
+        degrees of freedom by the experimenter).
+  \item (\emph{Correlation sensitivity}) For the above $h_1,h_2$, free evolution yields
+        successor histories $h_1' , h_2'$ with distinct reduced outcomes:
+        $\Pi(h_1') \neq \Pi(h_2')$.
+\end{enumerate}
+Then $\Pi$ is unfaithful with respect to $\mathcal{I}$.
+\end{proposition}
+
+\begin{remark}[Interpretive status]
+This result is diagnostic rather than prohibitive: it identifies sufficient structural
+conditions under which algebraically closed reduced descriptions cannot support
+counterfactual prediction under the intervention class $\mathcal{I}$. It does not claim
+that such descriptions must always be abandoned, nor that they fail outside these
+conditions.
+\end{remark}
+
+\begin{remark}[Meaning of structural genericity]
+Genericity here is understood \emph{structurally} rather than statistically:
+it refers to the instability of faithfulness under perturbations to correlation
+structure or intervention classes, not to the frequency with which approximate
+$\Sigma_1$ descriptions succeed in controlled experimental regimes.
+\end{remark}
+
+\begin{remark}[Regimes of $\Sigma_1$ adequacy]
+Faithful $\Sigma_1$ behavior persists in important and widely used regimes, including
+factorized initial conditions, weak coupling or short-time limits, and restricted
+intervention classes for which discarded degrees of freedom never become causally
+relevant. The present result clarifies the boundaries of these regimes rather than
+challenging their empirical success.
+\end{remark}
+
+\subsection{Minimal unfaithful example with explicit unitary dynamics}
+
+Consider a system $S$ coupled to an environment $E$, with a joint unitary evolution
+$U_{SE}(\Delta t)$ representing free evolution over a duration $\Delta t$. Let the reduction
+$\Pi$ retain only the system state, so $\Pi(h)$ corresponds to $\rho_S(t_0)$ at an operational
+cut time $t_0$.
+
+Define two admissible histories $h_1,h_2 \in \mathcal{H}$ whose joint states at $t_0$ are
+pure but correlated in distinct ways:
+\begin{align}
+|\psi_1\rangle_{SE}(t_0) &= \sum_i \alpha_i \, |s_i\rangle_S \, |e_i^{(1)}\rangle_E, \\
+|\psi_2\rangle_{SE}(t_0) &= \sum_i \alpha_i \, |s_i\rangle_S \, |e_i^{(2)}\rangle_E,
+\end{align}
+where $\{|s_i\rangle\}$ is an orthonormal basis on $S$ and the environment families
+$\{|e_i^{(1)}\rangle\}$ and $\{|e_i^{(2)}\rangle\}$ differ (capturing distinct correlations).
+
+Assume both histories reduce to the same system density operator:
+\begin{equation}
+\rho_S(t_0)
+=
+\mathrm{Tr}_E\!\left[ |\psi_1\rangle\langle\psi_1| \right]
+=
+\mathrm{Tr}_E\!\left[ |\psi_2\rangle\langle\psi_2| \right].
+\end{equation}
+In particular, in the basis $\{|s_i\rangle\}$ this reduced state has the operator form
+\begin{equation}
+\rho_S(t_0) = \sum_i |\alpha_i|^2 \, |s_i\rangle\langle s_i|,
+\end{equation}
+which makes explicit that $\rho_S(t_0)$ depends on the $\alpha_i$ but not on the environment
+vectors $|e_i^{(k)}\rangle$. Thus $\Pi(h_1)=\Pi(h_2)=\rho_S(t_0)$, so the reduction is degenerate.
+
+Let the intervention class $\mathcal{I}$ include the passive intervention $I_{\Delta t}$
+corresponding to free evolution by $U_{SE}(\Delta t)$. The evolved joint states are
+\begin{equation}
+|\psi_k\rangle_{SE}(t_0+\Delta t)
+=
+U_{SE}(\Delta t)\,|\psi_k\rangle_{SE}(t_0),
+\quad k \in \{1,2\}.
+\end{equation}
+The corresponding reduced states are
+\begin{equation}
+\rho_S^{(k)}(t_0+\Delta t)
+=
+\mathrm{Tr}_E\!\left[ |\psi_k\rangle\langle\psi_k| (t_0+\Delta t) \right].
+\end{equation}
+For generic interaction unitaries $U_{SE}(\Delta t)$ and distinct correlation structure
+in the environment families, one obtains
+\begin{equation}
+\rho_S^{(1)}(t_0+\Delta t) \neq \rho_S^{(2)}(t_0+\Delta t),
+\end{equation}
+because $\rho_S(t_0)$ does not encode which environment correlation pattern is present.
+
+This is a \textbf{predictive} failure: an experimenter who prepares $\rho_S(t_0)$ and knows only
+the $\Sigma_1$ description cannot predict the outcome of applying $I_{\Delta t}$. A $\Sigma_1$ framework
+would prescribe a unique reduced dynamical map $\mathcal{E}_{\Delta t}$ such that
+\begin{equation}
+\rho_S(t_0+\Delta t) = \mathcal{E}_{\Delta t}\!\left[\rho_S(t_0)\right],
+\end{equation}
+but in the presence of the unfaithful cut the same input $\rho_S(t_0)$ yields multiple distinct
+outputs depending on hidden correlation structure. No choice of $\mathcal{E}_{\Delta t}$ can be
+correct for both histories simultaneously without additional structure beyond the $\Sigma_1$ object.
+
+\subsection{Classical Analog in Stochastic Control and Causal Inference}
+\label{sec:classical-analog}
+
+This subsection provides a non-quantum instantiation of the unfaithful cut.
+It introduces no new claims for classical control or causal inference; it
+serves only to demonstrate that unfaithful cuts arise whenever intervention
+semantics are imposed on degenerate reductions, independent of quantum
+structure.
+
+\paragraph{Hidden-state control model.}
+Let $X_t \in \mathcal{X}$ denote an unobserved state, $Y_t \in \mathcal{Y}$
+an observed quantity, and $U_t \in \mathcal{U}$ a controllable intervention.
+Assume a controlled stochastic evolution
+\begin{equation}
+  X_{t+1} = f(X_t, U_t, \xi_t),
+  \qquad
+  Y_t = g(X_t),
+  \label{eq:classical-hidden-state}
+\end{equation}
+where $\{\xi_t\}$ is exogenous noise. A \emph{history} $h \in \mathcal{H}$
+may be taken as a realization of $(X_0, Y_0, U_0, X_1, Y_1, U_1, \dots)$,
+or more abstractly as an element of whatever admissible trajectory space
+the model induces.
+
+Define a reduction $\Pi:\mathcal{H}\to\mathcal{R}$ by retaining only the
+current observation at a designated reduction event:
+\begin{equation}
+  \Pi(h) \coloneqq Y_t.
+  \label{eq:classical-reduction}
+\end{equation}
+This is the classical analogue of working with an instantaneous reduced
+descriptor and treating it as sufficient.
+
+\paragraph{Interventions and continuation sets.}
+Let the intervention class $\mathcal{I}$ include one-step control actions
+$I_u$ that set $U_t=u$ at the next step and otherwise act only through the
+retained degrees of freedom. Using the intervention-induced relation
+$h \sim_{I} h'$ introduced in Section~\ref{sec:definitions}, define
+continuation outcomes in the reduced space by
+\begin{equation}
+  \mathrm{Cont}(y;\mathcal{I})
+  \;\coloneqq\;
+  \Bigl\{ (I, y') \,:\,
+  \exists\, h,h' \in \Pi^{-1}(y)\ \text{with}\ h \sim_{I} h'
+  \ \wedge\ y'=\Pi(h') \Bigr\}.
+  \label{eq:classical-cont}
+\end{equation}
+Faithfulness requires that if $\Pi(h_1)=\Pi(h_2)=y$, then
+$\mathrm{Cont}(\Pi(h_1);\mathcal{I})=\mathrm{Cont}(\Pi(h_2);\mathcal{I})$.
+
+\paragraph{An unfaithful cut from hidden confounding.}
+Suppose there exist two admissible histories $h_1,h_2\in\mathcal{H}$ such that
+\begin{equation}
+  \Pi(h_1)=\Pi(h_2)=y,
+  \qquad
+  X_t^{(1)} \neq X_t^{(2)}.
+  \label{eq:classical-same-observation}
+\end{equation}
+If the dynamics are correlation-sensitive in the sense that there exists a
+control action $u$ for which
+\begin{equation}
+  \Pi(h_1') \neq \Pi(h_2')
+  \quad \text{for some}\quad
+  h_1 \sim_{I_u} h_1',\;\; h_2 \sim_{I_u} h_2',
+  \label{eq:classical-diverge}
+\end{equation}
+then the reduction \eqref{eq:classical-reduction} is unfaithful: the same
+reduced object $y$ supports distinct continuation structure under the same
+intervention class $\mathcal{I}$.
+
+This failure is the control-theoretic analogue of non-identifiability in causal
+models: distinct latent states compatible with the same observation yield
+different outcomes under identical do-interventions, as in Simpson's paradox driven by hidden confounding.
+
+This is a predictive failure. Conditioning only on $Y_t=y$ does not suffice
+to determine the outcome of applying $U_t=u$.
+
+\paragraph{Concrete two-latent example.}
+For intuition, take $\mathcal{X}=\{A,B\}$ and $\mathcal{Y}=\{0,1\}$ with a
+degenerate observation map $g(A)=g(B)=0$. Let $\mathcal{U}=\{0,1\}$ and define
+\begin{equation}
+  \mathbb{P}(Y_{t+1}=1 \mid X_t=A, U_t=1)=1,
+  \qquad
+  \mathbb{P}(Y_{t+1}=1 \mid X_t=B, U_t=1)=0,
+  \label{eq:classical-two-latent}
+\end{equation}
+(with any convenient specification for $U_t=0$). Then $Y_t=0$ is compatible
+with both $X_t=A$ and $X_t=B$, but applying the same intervention $U_t=1$
+yields deterministically distinct outcomes for $Y_{t+1}$.
+
+\paragraph{$\Sigma_2$ resolution (classical form).}
+As in the quantum case, the $\Sigma_2$ description replaces a point-valued
+reduction by a fiber-aware object. The fiber at $y$ is
+\begin{equation}
+  \mathcal{F}(y) \coloneqq \Pi^{-1}(y),
+  \label{eq:classical-fiber}
+\end{equation}
+equipped with the intervention-indexed admissibility relations inherited
+from $\sim_I$. Interventions generically induce set-valued updates, reflecting
+the fact that different admissible completions of the same reduced descriptor
+support different future continuations.
+
+\subsection{Addressing ``just add the environment''}
+
+A natural response to the preceding example is to enlarge the reduced description to include
+the environment, replacing $\rho_S$ by $\rho_{SE}$. This move can restore faithfulness for
+that particular choice of ``system,'' but it does not eliminate the phenomenon: it merely
+pushes the operational cut outward. Any finite retained subsystem can be correlated with
+additional external degrees of freedom, and if the intervention class includes free evolution
+of the larger closed dynamics, the same argument reappears.
+
+\begin{corollary}[Pushing the cut outward does not remove unfaithfulness]
+\label{cor:push-cut}
+Let $\Pi$ describe any finite retained subsystem. If histories in $\mathcal{H}$ admit
+correlations between the retained subsystem and discarded degrees of freedom, and if
+$\mathcal{I}$ includes passive free evolution of the total system, then $\Pi$ is unfaithful
+unless those correlations are excluded (or rendered dynamically irrelevant) by assumption.
+\end{corollary}
+
+Corollary~\ref{cor:push-cut} clarifies the structural content of the unfaithful cut: the issue
+is not that one picked the ``wrong'' subsystem, but that any many-to-one operational reduction
+that discards potentially relevant correlations will fail under sufficiently rich intervention
+classes.

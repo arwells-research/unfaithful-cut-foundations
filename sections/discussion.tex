@@ -1,0 +1,54 @@
+\section{Discussion and Outlook}
+\label{sec:discussion}
+
+We have shown that the common strategy of treating reduced algebraic objects (instantaneous
+states, channels, or static multi-time tensors) as self-sufficient descriptions is structurally
+limited. When the reduction map is degenerate in a way that discards causally relevant
+correlations, and when the intervention class is rich enough to probe that dependence, the
+resulting $\Sigma_1$ description is unfaithful: it cannot support counterfactual prediction
+under any evolution rule defined solely on the reduced object. This limitation is
+representational rather than dynamical and does not imply that $\Sigma_1$ descriptions are
+universally invalid.
+
+We then introduced $\Sigma_2$ geometry as an explicit representation of the minimal information
+any faithful reduced description must encode: a base point $r$, its fiber
+$\mathcal{F}(r)=\Pi^{-1}(r)$, and an intervention-indexed continuation structure
+$\{\mathcal{A}_I(r)\}$, together with a set-valued update rule induced by interventions.
+This construction restores counterfactual semantics by design and establishes minimality in a
+\emph{representational} sense: any faithful completion must carry at least enough information to
+reconstruct the $\Sigma_2$ continuation structure.
+
+\subsection{What we are not claiming}
+
+\begin{itemize}
+  \item We do not claim that quantum theory is incorrect or incomplete as a predictive framework.
+  \item We do not introduce new microscopic dynamics or modification rules.
+  \item We do not propose hidden variables as an ontological commitment.
+  \item We do not claim that $\Sigma_2$ descriptions are always computationally tractable in full generality.
+\end{itemize}
+
+\subsection{Open questions}
+
+Several directions merit future work:
+\begin{enumerate}
+  \item \textbf{Categorical and sheaf-theoretic formulations.} The fiber/admissibility structure
+        suggests natural connections to fibrations and sheaf-like semantics for local predictive
+        patches.
+  \item \textbf{Complexity of $\Sigma_2$ approximation.} Characterizing when low-dimensional or
+        efficiently sampleable approximations exist.
+  \item \textbf{Experimental diagnostics.} Designing continuation-based tests that isolate
+        unfaithful cuts in controlled settings such as open quantum systems, quantum control,
+        and contextuality experiments.
+  \item \textbf{Intervention-class dependence.} Systematically classifying which intervention
+        classes render a given reduction faithful or unfaithful.
+\end{enumerate}
+
+\subsection{A practical message}
+
+When $\Sigma_1$ methods succeed, they do so in restricted regimes where discarded correlations
+are dynamically irrelevant for the intervention class of interest. When they fail, the correct
+response is not merely to search for a better reduced evolution equation, but to recognize that
+the operational reduction has created a blind spot: counterfactual prediction requires tracking,
+at minimum, fiber-level admissibility structure. $\Sigma_2$ provides a principled diagnostic
+language for identifying this boundary and for guiding the construction of approximations that
+respect it.

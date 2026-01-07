@@ -1,0 +1,93 @@
+\section{Practical Computation and Approximation of \texorpdfstring{$\Sigma_2$}{Sigma-2} Objects}
+\label{sec:sigma2-practical}
+
+A natural objection is that $\Sigma_2$ objects appear computationally intractable: specifying
+$\mathcal{F}(r)=\Pi^{-1}(r)$ and the relations $\{\mathcal{A}_I(r)\}$ exactly may be as hard as
+working with $\mathcal{H}$ itself. The intent of $\Sigma_2$ is not to demand full reconstruction of
+$\mathcal{H}$, but to identify the \emph{structurally necessary} information for counterfactual
+prediction and to provide a target for approximation schemes.
+
+\subsection{Finite parameterizations}
+
+In many physically relevant cases, histories within $\mathcal{F}(r)$ differ only through a
+finite set of parameters (e.g., a low-rank family of initial correlations, a small number of
+bath modes, or a finite memory length). In such settings, one may represent $\mathcal{F}(r)$
+implicitly as a parameterized family
+\begin{equation}
+\mathcal{F}(r) \approx \{ h(\theta) : \theta \in \Theta_r \},
+\end{equation}
+and approximate admissibility relations by pushforward of $\sim_I$ through this parameterization.
+
+\subsection{Sample-based approximations}
+
+When explicit parameterization is unavailable, $\Sigma_2$ admits sample-based approximations. One may
+maintain a finite ensemble $\{h_j\}_{j=1}^N \subset \mathcal{F}(r)$ and approximate continuation
+sets by evaluating which reduced outcomes are reachable under interventions for sampled elements.
+This yields empirical approximations of the form
+\begin{equation}
+\widehat{\mathrm{Cont}}(r;\mathcal{I})
+=
+\{(I,\Pi(h_j')) : h_j \sim_I h_j' \text{ for some } j \}.
+\end{equation}
+Such approximations are directly relevant to robust control and verification problems, where the
+objective is often to guarantee behavior over a set of possible hidden correlations rather than
+to infer a unique hidden state.
+
+\subsection{Coarse-graining by continuation equivalence}
+
+Exact fibers are often too large, but $\Sigma_2$ suggests a principled coarse-graining: partition
+$\mathcal{F}(r)$ into equivalence classes whose elements share identical continuation structure
+under a restricted intervention class. Define an equivalence relation on $\mathcal{F}(r)$ by
+\begin{equation}
+h_1 \equiv_{\mathcal{I}} h_2
+\iff
+\forall I\in\mathcal{I}:\;
+\{r':(h_1,r')\in\mathcal{A}_I(r)\}
+=
+\{r':(h_2,r')\in\mathcal{A}_I(r)\}.
+\end{equation}
+A $\Sigma_2$ description may then be represented by the quotient space $\mathcal{F}(r)/{\equiv_{\mathcal{I}}}$
+together with the induced admissibility structure. This yields the \emph{coarsest representation
+that preserves counterfactual prediction for the intervention class of interest}.
+
+\subsection{Tractability and Structural Compression}
+\label{sec:tractability-compression}
+
+It is important to distinguish a $\Sigma_2$ description from a full
+system--environment simulation. Although the fiber
+$\mathcal{F}(r)=\Pi^{-1}(r)$ is defined as a set of histories, $\Sigma_2$
+does not require enumerating or evolving those histories individually.
+Rather, it tracks equivalence classes of histories that share identical
+continuation structure with respect to the intervention class
+$\mathcal{I}$.
+
+In many physical regimes, the admissibility relations
+$\{\mathcal{A}_I(r)\}_{I\in\mathcal{I}}$ collapse large families of
+microscopically distinct histories into a low-dimensional
+parameterization. In such cases, $\Sigma_2$ is strictly coarser than the
+full history space $\mathcal{H}$ while remaining sufficient for
+counterfactual prediction.
+
+Examples of compressible fibers include:
+\begin{itemize}
+  \item finite-dimensional system--environment correlations, where the
+  fiber is parameterized by a small set of correlation coefficients;
+  \item bounded-memory reservoirs, where history dependence truncates
+  after a finite time $\tau$;
+  \item coarse-grained control-relevant observables, for which
+  microscopically distinct states are indistinguishable to the available
+  control bandwidth;
+  \item experimentally indistinguishable preparation classes.
+\end{itemize}
+
+\subsection{The role of \texorpdfstring{$\Sigma_2$}{Sigma-2} in practice}
+
+Even when full $\Sigma_2$ specification is impractical, the framework provides concrete benefits:
+\begin{enumerate}
+\item It supplies a diagnostic for when $\Sigma_1$ modeling is structurally incapable of supporting the
+      counterfactual questions one intends to ask.
+\item It defines the correct target object for approximation: not a single state or tensor, but a
+      continuation-structured family indexed by hidden correlation classes.
+\item It clarifies what must be preserved by reduced models and coarse-graining procedures to remain
+      operationally faithful with respect to a chosen intervention class.
+\end{enumerate}

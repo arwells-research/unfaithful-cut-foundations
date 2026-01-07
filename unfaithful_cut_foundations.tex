@@ -1,0 +1,112 @@
+% File: unfaithful_cut_foundations.tex
+%
+% Main driver for the "Unfaithful Cut" foundations paper.
+% Assumes section files live in ./sections and bibliography in ./bib.
+%
+% If you use \include instead of \input, do a clean build after renames
+% (remove *.aux) to avoid stale include aux artifacts.
+
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+\fi
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathmorphing}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={The Unfaithful Cut: A Structural Diagnostic for Algebraically Closed Reductions},
+  pdfauthor={A. R. Wells},
+}
+
+\usepackage[margin=1in]{geometry}
+
+% ---------- Bibliography ----------
+% Uses biblatex (biber). If you prefer natbib/bibtex, say so and I’ll swap it.
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=nyt,
+  maxbibnames=99
+]{biblatex}
+\addbibresource{bib/references.bib}
+
+% ---------- Theorem Environments ----------
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+
+% ---------- Convenience Macros ----------
+\newcommand{\Hspace}{\mathcal{H}}
+\newcommand{\Rspace}{\mathcal{R}}
+\newcommand{\Iclass}{\mathcal{I}}
+\newcommand{\Cont}{\mathrm{Cont}}
+
+\newcommand{\SigOne}{\Sigma_{1}}
+\newcommand{\SigTwo}{\Sigma_{2}}
+
+% ---------- Title Block ----------
+\title{\textbf{The Unfaithful Cut: A Structural Diagnostic for Algebraically Closed Reductions}}
+\author{
+  A.\ R.\ Wells\\
+  \textit{Dual-Frame Research Group}\\
+}
+\date{January 6, 2026}
+
+\begin{document}
+\maketitle
+
+% ---------- Abstract ----------
+\input{sections/abstract.text}
+
+% Optional: uncomment if you want a TOC
+% \tableofcontents
+% \bigskip
+
+% ---------- Main Sections ----------
+% These reflect your current directory listing.
+% If you ran the rename script I provided, update the three inputs at the end accordingly.
+\input{sections/introduction}
+\input{sections/definitions}
+\input{sections/genericity-and-example}
+\input{sections/sigma2-geometry}
+\input{sections/relations-to-existing}
+\input{sections/sigma2-practical}
+\input{sections/applications}
+\input{sections/practical-implementation}
+\input{sections/discussion}
+\input{appendices/appx_A_worked_example}
+
+% ---------- Bibliography ----------
+\printbibliography
+
+\end{document}

@@ -1,0 +1,95 @@
+\section{Practical Implementation and Approximation}
+\label{sec:practical}
+
+A natural objection is that $\Sigma_2$ objects appear to require enumerating large fibers
+$F(r)=\Pi^{-1}(r)$ and intervention-indexed continuation structures. This section clarifies the
+intended use: $\Sigma_2$ is not a promise of universal tractability; it is a specification of
+\emph{structurally necessary information}, which enables principled approximation schemes.
+
+\subsection{Finite parameterizations of fibers}
+\label{sec:finite-param}
+
+In many applications, the physically relevant variability within $F(r)$ is low-dimensional.
+For example, when the dominant uncertainty is a small set of correlation parameters (e.g.\
+effective bath-mode phases, coupling strengths, or a finite set of initial correlation
+coefficients), one can represent a fiber by a parameter family
+\[
+  F(r) \approx \{ h(\theta) : \theta \in \Theta_r \subset \mathbb{R}^k \},
+\]
+and define continuation structure by propagating $\theta$-families under interventions.
+
+\subsection{Sample-based approximation of continuation sets}
+\label{sec:sampling}
+
+When parametric structure is unknown or high-dimensional, one can approximate $\Sigma_2$ by
+sampling histories consistent with a reduced description:
+\[
+  \widehat{F}(r) = \{ h^{(1)},\dots,h^{(N)} \} \subseteq \Pi^{-1}(r),
+\]
+then estimating continuation sets
+\[
+  \widehat{A}_I(r) = \{ \Pi(h') : \exists h\in \widehat{F}(r)\ \text{s.t.}\ h \sim_I h' \}.
+\]
+This yields empirical set-valued predictions: interventions map uncertainty in fibers to
+uncertainty in outcomes.
+
+\subsection{Coarse-graining by continuation equivalence}
+\label{sec:coarse-grain}
+
+A particularly useful reduction is to partition $F(r)$ into equivalence classes that share
+continuation structure under a restricted intervention class $\mathcal{I}_0 \subseteq
+\mathcal{I}$:
+\[
+  h \equiv_{\mathcal{I}_0} \tilde{h}
+  \quad \Longleftrightarrow \quad
+  \mathrm{Cont}(\Pi(h);\mathcal{I}_0)=\mathrm{Cont}(\Pi(\tilde{h});\mathcal{I}_0).
+\]
+The quotient $F(r)/\!\equiv_{\mathcal{I}_0}$ is a minimal coarse representation sufficient for
+counterfactual prediction under $\mathcal{I}_0$.
+
+\subsection{Detecting when \texorpdfstring{$\Sigma_1$}{Sigma-1} is adequate}
+\label{sec:detect}
+
+Although $\Sigma_1$ descriptions can fail generically - in the structural sense clarified above - under the conditions of Proposition~\ref{prop:unfaithful-from-correlations}, there are important regimes where it is adequate in
+practice (e.g.\ engineered initial factorization, restricted intervention classes, weak coupling
+and short times). Operationally, one can test for unfaithfulness by designing \emph{continuation
+diagnostics}: prepare multiple realizations that agree in $r$ and apply a chosen intervention
+family; statistically significant multi-modal outcome structure indicates fiber sensitivity.
+
+\subsection{What \texorpdfstring{$\Sigma_2$}{Sigma-2} changes in practice}
+\label{sec:practical-summary}
+
+In applied settings, the principal role of $\Sigma_2$ is to:
+\begin{itemize}
+  \item identify the structural failure mode (degenerate reductions under correlation-sensitive
+        interventions),
+  \item provide a target object for approximation (fiber + continuation structure),
+  \item support robust design goals (controls and inference procedures that remain valid over
+        fibers or fiber classes).
+\end{itemize}
+
+\subsection{Experimental detection of unfaithful cuts}
+\label{sec:experimental-unfaithful}
+
+The unfaithful cut admits a direct experimental diagnostic. Consider a controlled quantum
+system in which nominally identical reduced preparations $\rho_S$ may differ in correlations
+with uncontrolled environmental degrees of freedom (e.g., due to preparation pathway
+variations or ambient field fluctuations).
+
+An experimental test proceeds as follows:
+\begin{enumerate}
+  \item Prepare an ensemble $\{h^{(1)}_k\}$ using preparation method $P_1$.
+  \item Prepare an ensemble $\{h^{(2)}_k\}$ using preparation method $P_2$.
+  \item Verify that both ensembles yield statistically indistinguishable reduced states
+        $\rho_S$ under standard state tomography.
+  \item Apply an identical control intervention $I \in \mathcal{I}$ to both ensembles.
+  \item Measure the resulting outcome distributions.
+\end{enumerate}
+
+If the post-intervention outcome distributions differ beyond statistical uncertainty, this
+demonstrates fiber degeneracy: the reduction $\Pi$ is unfaithful with respect to the intervention
+$I$. Conversely, agreement of outcome statistics indicates that the experiment operates within
+a $\Sigma_1$-adequate regime for the chosen intervention class.
+
+This diagnostic distinguishes genuine second-order behavior from regimes in which preparation
+variations are operationally irrelevant.
