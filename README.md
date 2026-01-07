@@ -132,7 +132,6 @@ Clean build artifacts:
 - Formal definitions complete
 - Explicit quantum and classical examples included
 - Minimality clarified as representational
-- Referee-reviewed and accepted with minor revisions
 
 **Release:** Published on Zenodo (versioned)
 
